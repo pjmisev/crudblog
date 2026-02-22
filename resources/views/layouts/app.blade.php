@@ -12,7 +12,7 @@
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
-    
+
     <!-- Bootstrap Icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
@@ -38,6 +38,9 @@
                         </li>
                         <li class="nav-item">
                             <a class="nav-link {{ request()->routeIs('blog.*') || request()->routeIs('posts.*') ? 'active' : '' }}" href="{{ route('blog.index') }}">Blog</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link {{ request()->routeIs('event.*') || request()->routeIs('events.*') ? 'active' : '' }}" href="{{ route('events.index') }}">Events</a>
                         </li>
                     </ul>
 

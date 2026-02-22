@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\EventController;
 use App\Http\Controllers\PostController;
 use Illuminate\Support\Facades\Route;
 
@@ -16,7 +17,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('home');
-})->name('home');
+})->name('index');
 
 Route::get('/blog', [PostController::class, 'index'])->name('blog.index');
 
@@ -24,6 +25,12 @@ Route::get('/blog', [PostController::class, 'index'])->name('blog.index');
 Route::resource('posts', PostController::class);
 
 Auth::routes();
+
+// Event routes
+Route::get('/events', [EventController::class, 'index'])->name('events.index');
+
+// Blog routes
+Route::resource('events', EventController::class);
 
 Route::get('/dashboard', [App\Http\Controllers\HomeController::class, 'index'])->name('dashboard');
 
