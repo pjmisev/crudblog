@@ -1,8 +1,46 @@
 // Fonts
-@import url('https://fonts.bunny.net/css?family=Nunito');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap');
 
 // Variables
 @import 'variables';
+$font-family-sans-serif: 'Montserrat', sans-serif;
+
 
 // Bootstrap
 @import 'bootstrap/scss/bootstrap';
+
+$theme-gradient: linear-gradient(135deg, #eaa166 0%, #a24b4b 100%);
+
+// Solid Gradient Button
+.btn-gradient {
+    background: $theme-gradient;
+    border: none;
+    color: white !important;
+    transition: opacity 0.2s ease;
+
+    &:hover {
+        opacity: 0.9;
+    }
+}
+
+// Outline Gradient Button
+.btn-outline-gradient {
+    background: transparent;
+    border: 2px solid #eaa166;
+    color: #a24b4b;
+
+    &:hover {
+        background: $theme-gradient;
+        border: 0;
+        margin: 2px;
+        color: white !important;
+    }
+}
+
+.text-gradient {
+    color: #eaa166;
+}
+
+.bg-gradient {
+    background: #a24b4b;
+}
