@@ -10,7 +10,7 @@
                     <p class="text-muted mb-0">Discover events from our community</p>
                 </div>
                 @auth
-                    <a href="{{ route('events.create') }}" class="btn btn-primary">Create New Event</a>
+                    <a href="{{ route('events.create') }}" class="btn btn-gradient rounded-5">Create New Event</a>
                 @endauth
             </div>
 
@@ -22,10 +22,10 @@
             @endif
 
             @forelse($events as $event)
-                <div class="card mb-4">
+                <div class="card mb-4 shadow rounded-5">
                     <div class="card-body">
                         <h3 class="card-title">
-                            <a href="{{ route('events.show', $event) }}" class="text-decoration-none">
+                            <a href="{{ route('events.show', $event) }}" class="text-decoration-none text-gradient">
                                 {{ $event->title }}
                             </a>
                         </h3>
@@ -37,14 +37,14 @@
                         </p>
                         <p class="card-text">{{ Str::limit($event->description, 200) }}</p>
                         <div class="d-flex justify-content-between align-items-center">
-                            <a href="{{ route('events.show', $event) }}" class="btn btn-sm btn-outline-primary">Read More</a>
+                            <a href="{{ route('events.show', $event) }}" class="btn btn-sm btn-outline-gradient rounded-5">Read More</a>
                             @can('update', $event)
                                 <div>
-                                    <a href="{{ route('events.edit', $event) }}" class="btn btn-sm btn-outline-secondary">Edit</a>
+                                    <a href="{{ route('events.edit', $event) }}" class="btn btn-sm btn-outline-gradient rounded-5">Edit</a>
                                     <form action="{{ route('events.destroy', $event) }}" method="POST" class="d-inline">
                                         @csrf
                                         @method('DELETE')
-                                        <button type="submit" class="btn btn-sm btn-outline-danger" onclick="return confirm('Are you sure you want to delete this event?')">Delete</button>
+                                        <button type="submit" class="btn btn-sm btn-outline-danger rounded-5" onclick="return confirm('Are you sure you want to delete this event?')">Delete</button>
                                     </form>
                                 </div>
                             @endcan

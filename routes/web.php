@@ -19,9 +19,9 @@ Route::get('/', function () {
     return view('home');
 })->name('index');
 
+// Blog routes
 Route::get('/blog', [PostController::class, 'index'])->name('blog.index');
 
-// Blog routes
 Route::resource('posts', PostController::class);
 
 Auth::routes();
@@ -29,8 +29,12 @@ Auth::routes();
 // Event routes
 Route::get('/events', [EventController::class, 'index'])->name('events.index');
 
-// Blog routes
 Route::resource('events', EventController::class);
+
+// About routes
+Route::get('/about', function () {
+    return view('about');
+})->name('about');
 
 Route::get('/dashboard', [App\Http\Controllers\HomeController::class, 'index'])->name('dashboard');
 

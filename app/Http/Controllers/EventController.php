@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\Event;
-use App\Models\Post;
 use Illuminate\Http\Request;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\View\View;
@@ -65,11 +64,11 @@ class EventController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Post $post): View
+    public function edit(Event $event): View
     {
-        $this->authorize('update', $post);
+        $this->authorize('update', $event);
 
-        return view('events.edit', compact('post'));
+        return view('events.edit', compact('event'));
     }
 
     /**

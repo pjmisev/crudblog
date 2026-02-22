@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-10">
             <div class="mb-3">
-                <a href="{{ route('events.index') }}" class="btn btn-sm btn-outline-secondary">
+                <a href="{{ route('events.index') }}" class="btn btn-sm btn-outline-secondary rounded-5">
                     &larr; Back to Events
                 </a>
             </div>
@@ -17,9 +17,9 @@
                 </div>
             @endif
 
-            <div class="card">
+            <div class="card shadow rounded-5">
                 <div class="card-body">
-                    <h1 class="card-title mb-3">{{ $event->title }}</h1>
+                    <h1 class="card-title mb-3 text-gradient">{{ $event->title }}</h1>
                     <h5>
                         <span class="fw-bold">Date:</span> {{ $event->date->format('M d, Y') }}
                     </h5>
@@ -35,11 +35,11 @@
                         </div>
                         @can('update', $event)
                             <div>
-                                <a href="{{ route('events.edit', $event) }}" class="btn btn-sm btn-outline-primary">Edit</a>
+                                <a href="{{ route('events.edit', $event) }}" class="btn btn-sm btn-outline-gradient rounded-5">Edit</a>
                                 <form action="{{ route('events.destroy', $event) }}" method="POST" class="d-inline">
                                     @csrf
                                     @method('DELETE')
-                                    <button type="submit" class="btn btn-sm btn-outline-danger" onclick="return confirm('Are you sure you want to delete this event?')">Delete</button>
+                                    <button type="submit" class="btn btn-sm btn-outline-danger rounded-5" onclick="return confirm('Are you sure you want to delete this event?')">Delete</button>
                                 </form>
                             </div>
                         @endcan
